@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using CC.BusinessLayer.Interfaces.IResultOperation;
 using CC.BusinessLayer.Interfaces.Repository;
-using CC.BusinessLayer.Models;
+using CC.BusinessLayer.Helper;
 using CC.DataLayer.Context;
 using Microsoft.EntityFrameworkCore;
 

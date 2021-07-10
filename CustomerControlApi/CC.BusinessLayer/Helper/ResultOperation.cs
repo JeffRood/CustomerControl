@@ -1,7 +1,7 @@
 ﻿using System;
 using CC.BusinessLayer.Interfaces.IResultOperation;
 
-namespace CC.BusinessLayer.Models
+namespace CC.BusinessLayer.Helper
 {
     public class ResultOperation<T> : IResultOperation<T>
     {
