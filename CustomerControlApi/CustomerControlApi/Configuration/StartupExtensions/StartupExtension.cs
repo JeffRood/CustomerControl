@@ -14,5 +14,18 @@ namespace CustomerControlApi.Configuration.StartupExtensions
               opt.UseSqlServer(configuration.GetConnectionString(Constrant.CCC_CONNECTION_STRING), b => b.MigrationsAssembly("CustomerControlApi"))
 
           );
+
+        public static void ConfigureSwagger(this IServiceCollection service)
+        {
+            service.AddSwaggerGen(c => {
+                c.SwaggerDoc("v1",
+                 new Microsoft.OpenApi.Models.OpenApiInfo
+                 {
+                     Title = "CustomerControl",
+                     Version = "V1",
+                     Description = "Manager client for Company"
+                 });
+            });
+        }
     }
 }

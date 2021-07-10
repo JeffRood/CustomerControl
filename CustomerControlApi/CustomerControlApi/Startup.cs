@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CustomerControlApi.Configuration.StartupExtensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,7 +26,7 @@ namespace CustomerControlApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.ConfigureSwagger();
             services.AddControllers();
         }
 
@@ -37,12 +38,25 @@ namespace CustomerControlApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSwagger(c =>
+            {
+                c.RouteTemplate = "api-docs/{documentName}/definition.json";
+            });
+            app.UseSwaggerUI(c =>
+            {
+                c.DocumentTitle = "CustomerControl Api";
+                c.RoutePrefix = "help";
+                c.SwaggerEndpoint("../api-docs/v1/definition.json", "Customer Control");
+                c.InjectStylesheet("../swagger-ui/custom.css");
+            });
+
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseStaticFiles();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
