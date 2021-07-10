@@ -9,6 +9,8 @@
     <None Remove="Configuration\StartupExtensions\" />
     <None Remove="Swashbuckle.AspNetCore.Swagger" />
     <None Remove="Swashbuckle.AspNetCore" />
+    <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="Microsoft.Extensions.DependencyInjection" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Configuration\" />
@@ -17,13 +19,15 @@
     <Folder Include="wwwroot\swagger-ui\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CC.DataLayer\CC.DataLayer.csproj">
+    <ProjectReference Include="..\Annetty\Annetty.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.1.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.4" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

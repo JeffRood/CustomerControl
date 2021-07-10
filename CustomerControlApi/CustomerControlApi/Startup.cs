@@ -27,6 +27,8 @@ namespace CustomerControlApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.ConfigureSwagger();
+            services.ConfigureAutomapper();
+
             services.AddControllers();
         }
 

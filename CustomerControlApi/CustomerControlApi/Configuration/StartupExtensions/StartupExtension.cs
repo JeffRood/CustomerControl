@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Linq;
+using AutoMapper;
 using CC.DataLayer.Constrains;
 using CC.DataLayer.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
 namespace CustomerControlApi.Configuration.StartupExtensions
 {
     public static class StartupExtension
@@ -15,6 +16,9 @@ namespace CustomerControlApi.Configuration.StartupExtensions
 
           );
 
+        public static void ConfigureAutomapper(this IServiceCollection service)
+        => service.AddAutoMapper(typeof(Startup));
+        
         public static void ConfigureSwagger(this IServiceCollection service)
         {
             service.AddSwaggerGen(c => {
@@ -27,5 +31,6 @@ namespace CustomerControlApi.Configuration.StartupExtensions
                  });
             });
         }
+
     }
 }
