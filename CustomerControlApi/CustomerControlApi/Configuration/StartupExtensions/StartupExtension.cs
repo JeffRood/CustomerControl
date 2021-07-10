@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using AutoMapper;
+using CC.BusinessLayer.Interfaces.Repository;
+using CC.BusinessLayer.Services.Repository;
 using CC.DataLayer.Constrains;
 using CC.DataLayer.Context;
 using Microsoft.EntityFrameworkCore;
@@ -30,6 +32,12 @@ namespace CustomerControlApi.Configuration.StartupExtensions
                      Description = "Manager client for Company"
                  });
             });
+        }
+
+        public static void InjectServices(this IServiceCollection service)
+        {
+           
+
         }
 
     }

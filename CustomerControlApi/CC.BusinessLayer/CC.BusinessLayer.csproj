@@ -9,16 +9,26 @@
     <None Remove="Services\" />
     <None Remove="Interfaces\Repository\" />
     <None Remove="Interfaces\IResultOperation\" />
-    <None Remove="Services\Repository\" />
     <None Remove="Models\" />
+    <None Remove="Interfaces\Persons\" />
+    <None Remove="Services\PersonServices\" />
+    <None Remove="Repository\" />
+    <None Remove="Repository\Persons\" />
+    <None Remove="Repository\Base\" />
+    <None Remove="Interfaces\Service\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\" />
     <Folder Include="Services\" />
     <Folder Include="Interfaces\Repository\" />
     <Folder Include="Interfaces\IResultOperation\" />
-    <Folder Include="Services\Repository\" />
-    <Folder Include="Models\" />
+    <Folder Include="Helper\" />
+    <Folder Include="Interfaces\Persons\" />
+    <Folder Include="Services\Persons\" />
+    <Folder Include="Repository\" />
+    <Folder Include="Repository\Persons\" />
+    <Folder Include="Repository\Base\" />
+    <Folder Include="Interfaces\Service\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CC.DataLayer\CC.DataLayer.csproj" />
