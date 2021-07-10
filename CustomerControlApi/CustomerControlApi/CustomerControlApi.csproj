@@ -19,7 +19,10 @@
     <Folder Include="wwwroot\swagger-ui\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Annetty\Annetty.csproj">
+    <ProjectReference Include="..\CC.DataLayer\CC.DataLayer.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\CC.BusinessLayer\CC.BusinessLayer.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
   </ItemGroup>
