@@ -10,9 +10,9 @@ namespace CC.DataLayer.Mapping.Addresses
     {
         public AddressMap()
         {
-            CreateMap<Address, AddressViewModel>();
+            CreateMap<Address, AddressViewModel>().ReverseMap();
             CreateMap<Address, InputAddress>().ReverseMap();
-
+            CreateMap<AddressViewModel, InputAddress>().ReverseMap();
         }
     }
 }

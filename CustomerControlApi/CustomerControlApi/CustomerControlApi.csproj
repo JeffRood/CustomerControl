@@ -13,6 +13,7 @@
     <None Remove="Microsoft.Extensions.DependencyInjection" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
+    <None Remove="Microsoft.EntityFrameworkCore.Proxies" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Configuration\" />
@@ -41,6 +42,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

@@ -10,9 +10,9 @@ namespace CC.DataLayer.Mapping.Persons
     {
         public PersonMap()
         {
-            CreateMap<Person, PersonViewModel>();
+            CreateMap<Person, PersonViewModel>().ReverseMap();
             CreateMap<Person, InputPerson>().ReverseMap();
-            CreateMap<PersonViewModel, InputPerson>();
+            CreateMap<PersonViewModel, InputPerson>().ReverseMap();
 
         }
 

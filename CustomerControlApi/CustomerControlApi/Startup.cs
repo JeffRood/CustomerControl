@@ -28,6 +28,8 @@ namespace CustomerControlApi
         {
             services.ConfigureCC_Context(Configuration);
             services.ConfigureSwagger();
+            services.InjectRepositories();
+            services.InjectServices();
             services.ConfigureAutomapper();
             services.AddControllers();
         }

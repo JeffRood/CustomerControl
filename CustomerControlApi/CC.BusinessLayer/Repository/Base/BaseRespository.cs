@@ -49,8 +49,19 @@ namespace CC.BusinessLayer.Repository.Base
         public IEnumerable<TEntity> FindAll(Expression<Func<TEntity, bool>> predicate)
         => _set.Where(predicate).ToList();
 
-        public IEnumerable<TEntity> Get()
-        => _set.AsEnumerable();
+        public async Task<IEnumerable<TView>> GetAllAsync() {
+
+            var result = await _set.ToListAsync();
+            return _mapper.Map<List<TView>>(result);
+
+        }
+        public IEnumerable<TView> Get()
+        {
+
+            var listData = _set.AsEnumerable();
+            return _mapper.Map<List<TView>>(listData);
+
+        }
 
 
         public void Save()
@@ -65,8 +76,10 @@ namespace CC.BusinessLayer.Repository.Base
 
         public async Task<IResultOperation<TView>> CreateAsync(TInput entity, string Mensaje)
         {
+
             var mapPerson = _mapper.Map<TEntity>(entity);
-            var DataAdded = await _set.AddAsync(mapPerson);
+            var DataAdded =  await _set.AddAsync(mapPerson);
+            Save();
             return ResultOperation<TView>.Ok(Mensaje);
         }
     }

@@ -30,10 +30,10 @@ namespace CC.BusinessLayer.Services.Persons
 
         }
 
-        public Task<IEnumerable<PersonViewModel>> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<IEnumerable<PersonViewModel>> GetAll()
+        => await _PersonDB.GetAllAsync();
+            
+        
 
         public Task<IResultOperation<PersonViewModel>> Remove(int Id)
         {
