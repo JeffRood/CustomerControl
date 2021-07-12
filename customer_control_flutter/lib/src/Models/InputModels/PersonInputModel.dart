@@ -1,28 +1,28 @@
 import 'dart:convert';
+import 'dart:developer';
 
-import 'AddressViewModel.dart';
+import 'package:customer_control_flutter/src/Models/InputModels/AddressInputModel.dart';
 
-PersonViewModel personViewModelFromJson(String str) =>
-    PersonViewModel.fromJson(json.decode(str));
+PersonInputModel personViewModelFromJson(String str) =>
+    PersonInputModel.fromJson(json.decode(str));
 
-String personViewModelToJson(PersonViewModel data) =>
+String personViewModelToJson(PersonInputModel data) =>
     json.encode(data.toJson());
 
-class PersonViewModel {
+class PersonInputModel {
   int? id;
   String? firstName;
   String? secondName;
   String? firstLastName;
   String? secondLastName;
   String? gender;
-  String? birthDate;
+  DateTime? birthDate;
   String? phoneNumber;
   String? documentNumber;
-  List<AddressViewModel>? addresses;
+  List<AddressInputModel>? addresses;
 
-  PersonViewModel(
-      {this.id,
-      this.firstName,
+  PersonInputModel(
+      {this.firstName,
       this.secondName,
       this.firstLastName,
       this.secondLastName,
@@ -32,11 +32,8 @@ class PersonViewModel {
       this.documentNumber,
       this.addresses});
 
-  String getFullName() => "${this.firstName} ${this.firstLastName}";
-
-  factory PersonViewModel.fromJson(Map<String, dynamic> json) =>
-      PersonViewModel(
-        id: json["id"],
+  factory PersonInputModel.fromJson(Map<String, dynamic> json) =>
+      PersonInputModel(
         firstName: json["firstName"] ?? "",
         secondName: json["secondName"] ?? "",
         firstLastName: json["firstLastName"] ?? "",
@@ -46,24 +43,23 @@ class PersonViewModel {
         phoneNumber: json["phoneNumber"] ?? "",
         documentNumber: json["documentNumber"] ?? "",
         addresses: json["addresses"] != null
-            ? List<AddressViewModel>.from(
+            ? List<AddressInputModel>.from(
                 json["addresses"].map(
-                  (x) => AddressViewModel.fromJson(x),
+                  (x) => AddressInputModel.fromJson(x),
                 ),
               )
             : null,
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "firstName": firstName,
-        "secondName": secondName,
-        "firstLastName": firstLastName,
-        "secondLastName": secondLastName,
-        "gender": gender,
-        "birthDate": birthDate,
-        "phoneNumber": phoneNumber,
-        "documentNumber": documentNumber,
-        "addresses": addresses,
+        "firstName": "$firstName",
+        "secondName": "$secondName",
+        "firstLastName": "$firstLastName",
+        "secondLastName": "$secondLastName",
+        "gender": "$gender",
+        "documentNumber": "$documentNumber",
+        "birthDate": "${birthDate!.toIso8601String()}",
+        "phoneNumber": "$phoneNumber",
+        "addresses": addresses?.map((e) => e.toJson()).toList(),
       };
 }
