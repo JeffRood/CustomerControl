@@ -116,7 +116,7 @@ class _RegisterScreenbState extends State<RegisterScreen> {
                   toggleGender(),
                   _textFieldPhoneNumber(),
                   _textFieldDocument(),
-                  _AddressContainer(),
+                  _addressContainer(),
                   ElevatedButton(
                     onPressed: () async {
                       if (widget.birthdayDate == null) {
@@ -215,7 +215,7 @@ class _RegisterScreenbState extends State<RegisterScreen> {
     );
   }
 
-  Widget _AddressContainer() {
+  Widget _addressContainer() {
     return Column(
       children: [
         SizedBox(
@@ -230,7 +230,9 @@ class _RegisterScreenbState extends State<RegisterScreen> {
                 )),
             ElevatedButton(
               onPressed: () {
-                addressController.add(TextEditingController());
+                setState(() {
+                  addressController.add(TextEditingController());
+                });
               },
               child: Text('Agregar Direccion'),
             )
